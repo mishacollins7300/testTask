@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'Lato';
+    src: url('fonts/Lato-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+html,
+body {
+    margin: 0;
+    height: 100%;
+}
+.content__button {
+    width: 600px;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.button {
+    font-family: Lato, sans-serif;
+    font-weight: 600;
+    width: 557px;
+    min-width: 200px;
+    height: 48px;
+    padding: 14px 0 16px 0;
+    color: #fff;
+    background: #E5266E;
+    border: none;
+    border-radius: 4px;
+}
