@@ -1,3 +1,4 @@
 function openModal() {
-    console.log('open');
+    let modal = document.getElementById('modal-window');
+    modal.classList.add('modal-window_open');
 }

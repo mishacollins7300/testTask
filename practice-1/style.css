@@ -4,11 +4,16 @@
     font-weight: normal;
     font-style: normal;
 }
-html,
+
+html, body {
+    min-height: 100%;
+    overflow: hidden;
+}
+
 body {
     margin: 0;
-    height: 100%;
 }
+
 .content__button {
     width: 600px;
     height: 200px;
@@ -29,4 +34,39 @@ body {
     background: #E5266E;
     border: none;
     border-radius: 4px;
+}
+
+.modal-window {
+    display: block;
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.42);
+    overflow: scroll;
+    padding: 100px 0;
+}
+
+.modal-window_open {
+    display: block;
+}
+
+.modal-window__content {
+    width: 754px;
+    height: 1248px;
+    background-color: #fff;
+    margin: 0 auto;
+    border-radius: 12px;
+}
+
+.modal-window__input {
+    position: relative;
+    top: 50%
+}
+
+.modal-window__input__label {
+    position: absolute;
+}
+
+.input {
+
 }
