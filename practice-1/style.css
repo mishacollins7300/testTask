@@ -12,6 +12,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/Montserrat-ExtraBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 html, body {
     min-height: 100%;
     overflow: hidden;
@@ -65,9 +72,21 @@ body {
     padding: 53px 98px;
 }
 
+.modal-window__title {
+    font-family: Montserrat,sans-serif;
+    font-size: 28px;
+    color: #0C1014;
+    line-height: 34px;
+}
+
+.modal-window__form {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
 .modal-window__input {
     position: relative;
-    width: 558px;
+    width: 100%;
     min-width: 200px;
 }
 
@@ -82,19 +101,42 @@ body {
     color: #6A6E72;
     display: flex;
     justify-content: center;
+    padding-left: 10px;
 }
 
-.modal-window__input__label__required {
-    color: #D90000;
-    font-size: 24px;
+.input__label-required {
+    background: url("image/label.svg") no-repeat left top 45%;
 }
+
 .input {
+    width: 100%;
     border-radius: 2px;
     border: 1px solid #D6DADE;
-    width: 558px;
-    min-width: 200px;
-    outline:none;
-    padding: 22px 16px 8px 16px;
+    outline: none;
+    padding: 16px;
     line-height: 24px;
     font-size: 16px;
+    -ms-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: border-box;
+}
+
+.input__icon {
+    position: absolute;
+    right: 16px;
+    top: 32%;
+}
+
+.select {
+    background-image: url("image/icon-color.svg");
+    background-size: 2%;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: calc(100% - 16px);
+    -webkit-appearance: none;
+}
+input:required,
+select:required{
+    padding: 22px 16px 8px 16px;
 }
