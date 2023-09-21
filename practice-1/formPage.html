@@ -34,8 +34,17 @@
                             <input type="text" class="input" required>
                         </div>
                         <div class="contact-block__photo">
-                            <input type="file" accept="image/*" id="files" multiple onchange="handleFileSelect(event)"/>
-                            <img id="list">
+                            <!--<input type="file" accept="image/*" id="files" multiple onchange="handleFileSelect(event)"/>
+                            <img id="list">-->
+                            <div class="photo__block">
+                                <div class="photo__block__delete-file">
+                                    <img src="image/close.svg" alt="" class="delete-file__icon">
+                                </div>
+                                <div class="photo__block__select-file">
+                                    <img src="image/select-photo-icon.svg" alt="" class="select-file__icon">
+                                    <p class="select-file__text">Выберите файл</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

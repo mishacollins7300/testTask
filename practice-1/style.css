@@ -73,7 +73,7 @@ body {
 }
 
 .modal-window__title {
-    font-family: Montserrat,sans-serif;
+    font-family: Montserrat, sans-serif;
     font-size: 28px;
     color: #0C1014;
     line-height: 34px;
@@ -84,10 +84,49 @@ body {
     flex-direction: column;
     gap: 32px;
 }
+
 .form__input {
     position: relative;
     width: 100%;
     min-width: 200px;
+}
+
+.photo__block {
+    width: 160px;
+    height: 160px;
+    background: #868789;
+    border-radius: 50%;
+    position: relative;
+}
+
+.photo__block__delete-file {
+    background: #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    right: 0;
+    top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo__block__delete-file:hover {
+    cursor: pointer;
+}
+
+.photo__block__select-file {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.select-file__text {
+    font-family: "PT sans", sans-serif;
+    font-size: 18px;
+    line-height: 28px;
 }
 
 .form__input__label {
@@ -136,7 +175,8 @@ body {
     background-position-x: calc(100% - 16px);
     -webkit-appearance: none;
 }
+
 input:required,
-select:required{
+select:required {
     padding: 22px 16px 8px 16px;
 }
