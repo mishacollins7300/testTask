@@ -84,13 +84,13 @@ body {
     flex-direction: column;
     gap: 32px;
 }
-.modal-window__input {
+.form__input {
     position: relative;
     width: 100%;
     min-width: 200px;
 }
 
-.modal-window__input__label {
+.form__input__label {
     position: absolute;
     top: 8px;
     left: 17px;

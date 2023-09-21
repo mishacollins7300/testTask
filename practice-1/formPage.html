@@ -13,14 +13,40 @@
         <div class="modal-window__content">
             <h2 class="modal-window__title">Стать партнёром проекта</h2>
             <div class="modal-window__form">
-                <div class="modal-window__input">
-                    <label class="modal-window__input__label input__label-required">
+                <div class="form__contact-block">
+                    <div class="contact-block__info-input">
+                        <div class="form__input">
+                            <label class="form__input__label input__label-required">
+                                Название организации
+                            </label>
+                            <input type="text" class="input" required>
+                        </div>
+                        <div class="form__input">
+                            <label class="form__input__label input__label-required">
+                                Телефон
+                            </label>
+                            <input type="text" class="input" required>
+                        </div>
+                        <div class="form__input">
+                            <label class="form__input__label input__label-required">
+                                E-mail
+                            </label>
+                            <input type="text" class="input" required>
+                        </div>
+                        <div class="contact-block__photo">
+                            <input type="file" accept="image/*" id="files" multiple onchange="handleFileSelect(event)"/>
+                            <img id="list">
+                        </div>
+                    </div>
+                </div>
+                <div class="form__input">
+                    <label class="form__input__label input__label-required">
                         Направление
                     </label>
                     <input type="text" class="input" required>
                 </div>
-                <div class="modal-window__input">
-                    <label class="modal-window__input__label input__label-required">
+                <div class="form__input">
+                    <label class="form__input__label input__label-required">
                         Направление
                     </label>
                     <select class="input select" required>
@@ -32,32 +58,31 @@
                         <option value="why?">Почему 2 раза экология?</option>
                     </select>
                 </div>
-
-                <div class="modal-window__input">
+                <div class="form__input">
                     <input type="text" class="input">
                     <img src="image/site.svg" alt="" class="input__icon">
                 </div>
-                <div class="modal-window__input">
+                <div class="form__input">
                     <input type="text" class="input">
                     <img src="image/vk.svg" alt="" class="input__icon">
                 </div>
-                <div class="modal-window__input">
+                <div class="form__input">
                     <input type="text" class="input">
                     <img src="image/odnoklassniki.svg" alt="" class="input__icon">
                 </div>
-                <div class="modal-window__input">
+                <div class="form__input">
                     <input type="text" class="input">
                     <img src="image/facebook.svg" alt="" class="input__icon">
                 </div>
-                <div class="modal-window__input">
+                <div class="form__input">
                     <input type="text" class="input">
                     <img src="image/Instagram.svg" alt="" class="input__icon">
                 </div>
-                <div class="modal-window__input">
+                <div class="form__input">
                     <input type="text" class="input">
                     <img src="image/youtube.svg" alt="" class="input__icon">
                 </div>
-                <div class="modal-window__input">
+                <div class="form__input">
                     <input type="text" class="input">
                 </div>
             </div>
