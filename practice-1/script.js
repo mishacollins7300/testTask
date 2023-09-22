@@ -24,11 +24,11 @@ function handleSelectFile () {
 }
 
 function deleteFile () {
-    console.log(event)
     if(document.getElementById('show-img')) {
         let img = document.getElementById('show-img');
         img.removeAttribute('src');
         img.remove();
+        document.getElementById('select-file').value = '';
     }
 }
 function submitForm() {

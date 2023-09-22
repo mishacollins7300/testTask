@@ -19,13 +19,19 @@
     font-style: normal;
 }
 
+
 html, body {
-    min-height: 100%;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
 }
 
 body {
     margin: 0;
+}
+
+.content {
+
 }
 
 .content__button {
@@ -41,8 +47,7 @@ body {
     font-family: Lato, sans-serif;
     font-weight: 500;
     font-size: 16px;
-    width: 557px;
-    min-width: 200px;
+    width: 100%;
     height: 48px;
     padding: 14px 0 16px 0;
     color: #fff;
@@ -67,11 +72,18 @@ body {
 .modal-window {
     display: none;
     position: absolute;
-    max-height: calc(100vh - 210px);
+    max-height: calc(100vh - 200px);
+    height: 100%;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.42);
     padding: 100px 0;
     overflow-y: auto;
+}
+@media screen and (max-width: 600px){
+    .modal-window {
+        max-height: 100%;
+        padding: 0;
+    }
 }
 
 .modal-window_open {
@@ -89,6 +101,14 @@ body {
     padding: 53px 123px 53px 73px;
 }
 
+@media (max-width: 600px){
+    .modal-window__content {
+        width: 93%;
+        margin: 0;
+        padding: 15px;
+    }
+}
+
 .modal-window__title {
     font-family: Montserrat, sans-serif;
     font-size: 28px;
@@ -96,7 +116,11 @@ body {
     line-height: 34px;
     text-indent: 24px;
 }
-
+@media (max-width: 600px){
+    .modal-window__title {
+        text-indent: 0;
+    }
+}
 .modal-window__form {
     display: flex;
     flex-direction: column;
@@ -107,6 +131,8 @@ body {
 .form__contact-block {
     display: flex;
     gap: 26px;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 .form__input {
