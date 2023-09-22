@@ -51,7 +51,8 @@
                                 <img src="image/select-photo-icon.svg" alt="" class="select-file__icon">
                                 <p class="select-file__text">Выберите</br>файл</p>
                             </div>
-                            <input type="file" style="display: none" id="select-file" onchange="handleFileSelect(event)" required>
+                            <input type="file" id="select-file" onchange="handleFileSelect(event)"
+                                   style="position: absolute;top: 0; z-index: -1;" required>
                             <!--<img alt="" class="photo__block__select-photo" id="show-img">-->
                         </div>
                     </div>
