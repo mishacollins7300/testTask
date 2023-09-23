@@ -1,0 +1,15 @@
+thead > tr {
+    background-color: #fcbfd8;
+}
+
+td {
+    text-align: center;
+}
+
+tbody > tr:nth-child(2n) {
+    background-color: #fcbfd8;
+}
+
+tbody > tr:nth-child(n) > td {
+    border: 1px solid #fcbfd8;
+}
