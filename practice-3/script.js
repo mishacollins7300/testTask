@@ -1,29 +1,36 @@
 function setTable(data) {
     // заполнение таблицы
+    document.getElementById('body').innerHTML = '';
     let body = document.getElementById('body');
     data.map(element => {
         let tr = document.createElement('tr');
         let td = ''
-        Object.values(element).map(val => {
+        Object.values(element).map((val) => {
             td += `<td>${val}</td>`
         })
         tr.innerHTML = td;
         body.appendChild(tr);
     })
 }
-function sortTable(data, param, direction) {
-    document.getElementById('body').innerHTML = '';
+function sortTable(param, direction) {
+    let data = document.getElementById('body');
+    let daraArray = Array.from(data.rows)
+        .map(row => Array.from(row.cells)
+            .map(cell =>
+                isNaN(cell.innerHTML) ? cell.innerHTML : parseInt(cell.innerHTML)
+            ));
+    console.log(daraArray)
     const sortedData = direction === 'asc'
-        ? [...data].sort(function (a, b) {
+        ? [...daraArray].sort(function (a, b) {
             if (a[param] < b[param]) {
                 return -1;
             }
             if (a[param] > b[param]) {
-                return 1;voluptatum
+                return 1;
             }
             return 0;
         })
-        : [...data].sort(function (a, b) {
+        : [...daraArray].sort(function (a, b) {
             if (b[param] < a[param]) {
                 return -1;
             }
@@ -35,29 +42,26 @@ function sortTable(data, param, direction) {
     setTable(sortedData);
 }
 
-function searchData(ev) {
-    let table = document.getElementById('body');
+function searchData(ev, data) {
     let searchText = new RegExp(ev.target.value, 'i');
     let flag = false;
     if(ev.target.value.length >= 3) {
-        for (let i = 0; i < table.rows.length; i++) {
+        let searchedData = [];
+        document.getElementById('body').innerHTML = '';
+        for (let i = 0; i < data.length; i++) {
             flag = false;
-            for (let j = table.rows[i].cells.length - 1; j >= 0; j--) {
-                flag = searchText.test(table.rows[i].cells[j].innerHTML);
-                console.log(table.rows[i].cells[j].innerHTML)
-                if (flag) break;
+            Object.values(data[i]).map(item => {
+                console.log(item)
+                flag = searchText.test(item);
+                if(flag) return;
+            })
+            if(flag) {
+                searchedData.push(data[i]);
             }
-            if (flag) {
-                table.rows[i].style.display = "";
-            } else {
-                table.rows[i].style.display = "none";
-            }
-
         }
+        setTable(searchedData);
     } else {
-        for (let i = 0; i < table.rows.length; i++) {
-            table.rows[i].style.display = "";
-        }
+        setTable(data);
     }
 
 }
@@ -69,12 +73,12 @@ async function getData() {
     }
 }
 
-function l(ev, data) {
+function l(ev) {
     if(ev.target.getAttribute("data-dir") === "desc") {
-        sortTable(data, ev.target.textContent, "desc");
+        sortTable(ev.target.cellIndex, "desc");
         ev.target.setAttribute("data-dir", "asc");
     } else {
-        sortTable(data, ev.target.textContent, "asc");
+        sortTable(ev.target.cellIndex, "asc");
         ev.target.setAttribute("data-dir", "desc");
     }
 
@@ -84,7 +88,7 @@ getData().then(res => {
     [...document.querySelectorAll('th')].map(th => th.addEventListener("click", function (e) {
         l(e, res)
     }))
-    document.getElementById('search-input').addEventListener('keyup', (e) => searchData(e) )
+    document.getElementById('search-input').addEventListener('keyup', (e) => searchData(e, res) )
 });
 
 
