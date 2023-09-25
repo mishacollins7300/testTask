@@ -1,7 +1,7 @@
 function setTable(data) {
     // заполнение таблицы
-    document.getElementById('body').innerHTML = '';
     let body = document.getElementById('body');
+    document.getElementById('body').innerHTML = ''
     data.map(element => {
         let tr = document.createElement('tr');
         let td = ''
@@ -19,7 +19,6 @@ function sortTable(param, direction) {
             .map(cell =>
                 isNaN(cell.innerHTML) ? cell.innerHTML : parseInt(cell.innerHTML)
             ));
-    console.log(daraArray)
     const sortedData = direction === 'asc'
         ? [...daraArray].sort(function (a, b) {
             if (a[param] < b[param]) {
@@ -41,38 +40,6 @@ function sortTable(param, direction) {
         });
     setTable(sortedData);
 }
-
-function searchData(ev, data) {
-    let searchText = new RegExp(ev.target.value, 'i');
-    let flag = false;
-    if(ev.target.value.length >= 3) {
-        let searchedData = [];
-        document.getElementById('body').innerHTML = '';
-        for (let i = 0; i < data.length; i++) {
-            flag = false;
-            Object.values(data[i]).map(item => {
-                console.log(item)
-                flag = searchText.test(item);
-                if(flag) return;
-            })
-            if(flag) {
-                searchedData.push(data[i]);
-            }
-        }
-        setTable(searchedData);
-    } else {
-        setTable(data);
-    }
-
-}
-
-async function getData() {
-    let response = await fetch("https://jsonplaceholder.typicode.com/posts");
-    if(response.ok) {
-        return await response.json();
-    }
-}
-
 function l(ev) {
     if(ev.target.getAttribute("data-dir") === "desc") {
         sortTable(ev.target.cellIndex, "desc");
@@ -83,10 +50,40 @@ function l(ev) {
     }
 
 }
+function searchData(ev, data) {
+    let searchText = new RegExp(ev.target.value, 'i');
+    let flag = false;
+    if(ev.target.value.length >= 3) {
+        let searchedData = [];
+        document.getElementById('body').innerHTML = '';
+        for (let i = 0; i < data.length; i++) {
+            flag = false;
+            for(let key in data[i]) {
+                flag = searchText.test(data[i][key]);
+                if(flag) break;
+            }
+            if(flag) {
+                searchedData.push(data[i]);
+            }
+        }
+        setTable(searchedData);
+    } else {
+        setTable(data);
+    }
+}
+
+async function getData() {
+    let response = await fetch("https://jsonplaceholder.typicode.com/posts");
+    if(response.ok) {
+        return await response.json();
+    }
+}
+
 getData().then(res => {
+    let event;
     setTable(res);
     [...document.querySelectorAll('th')].map(th => th.addEventListener("click", function (e) {
-        l(e, res)
+        l(e)
     }))
     document.getElementById('search-input').addEventListener('keyup', (e) => searchData(e, res) )
 });
