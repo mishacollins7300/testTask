@@ -20,7 +20,7 @@
                             <label class="form__input__label input__label-required">
                                 Название организации
                             </label>
-                            <input type="text" class="input" required>
+                            <input type="text" class="input input__with-label" required>
                         </div>
                         <div class="form__input">
                             <label class="form__input__label input__label-required">
@@ -31,13 +31,13 @@
                                     name="phone"
                                     placeholder="+7(000)000-00-00"
                                     data-phone-pattern
-                                    class="input" required>
+                                    class="input input__with-label" required>
                         </div>
                         <div class="form__input">
                             <label class="form__input__label input__label-required">
                                 E-mail
                             </label>
-                            <input type="email" class="input" required>
+                            <input type="email" class="input input__with-label" required>
                         </div>
                     </div>
                     <div class="contact-block__photo">
@@ -62,7 +62,7 @@
                     <label class="form__input__label input__label-required">
                         Направление
                     </label>
-                    <select class="input select" required>
+                    <select class="input select input__with-label" required>
                         <option></option>
                         <option value="eco">Экология</option>
                         <option value="car">Машиностроение</option>
@@ -96,7 +96,10 @@
                     <img src="image/youtube.svg" alt="" class="input__icon">
                 </div>
                 <div class="form__input">
-                    <input type="text" class="input">
+                    <label class="form__input__label">
+                        Руководитель
+                    </label>
+                    <input type="text" class="input input__with-label">
                 </div>
                 <div class="form__button-block">
                     <input type="submit" class="button" value="Стать партнёром проекта">

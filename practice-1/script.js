@@ -65,3 +65,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+window.addEventListener('click', (e) => {
+    if(e.target.id === 'modal-window') {
+        closeModal();
+    }
+})
+
